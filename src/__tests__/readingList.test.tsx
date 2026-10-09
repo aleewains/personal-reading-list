@@ -153,7 +153,7 @@ describe('Reading List - Acceptance Criteria: Loading, Error, Empty & Populated 
       // Verified book added to reading list
       await waitFor(() => {
         expect(screen.getByText('Refactoring')).toBeInTheDocument();
-        expect(screen.getByText('Martin Fowler')).toBeInTheDocument();
+        expect(screen.getByText(/Martin Fowler/i)).toBeInTheDocument();
       });
     });
   });

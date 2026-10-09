@@ -723,13 +723,13 @@ body {
 .book-card {
   background-color: var(--surface-card);
   border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-sm);
-  padding: 1.35rem 1.25rem 1.15rem 1.25rem;
+  border-radius: var(--radius-md);
+  padding: 1.4rem 1.35rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 0.85rem;
   box-shadow: var(--shadow-card);
-  transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
 }
 
 .book-card:hover {
@@ -738,105 +738,129 @@ body {
   border-color: var(--border-strong);
 }
 
-.card-top {
+.card-top-meta {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  gap: 0.75rem;
-  margin-bottom: 0.5rem;
+  align-items: center;
+  font-size: 0.74rem;
+  font-family: var(--font-mono);
+  color: var(--ink-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.card-genre {
+  font-weight: 600;
+  color: var(--ink-secondary);
+}
+
+.card-date {
+  color: var(--ink-muted);
 }
 
 .book-title {
-  flex: 1;
-  min-width: 0;
-  word-break: break-word;
   font-family: var(--font-serif);
-  font-size: 1.22rem;
+  font-size: 1.35rem;
   font-weight: 600;
+  line-height: 1.3;
   color: var(--ink-primary);
-  line-height: 1.35;
+  margin: 0;
+  word-break: break-word;
+}
+
+.book-byline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: -0.25rem;
 }
 
 .book-author {
+  font-size: 0.92rem;
   color: var(--ink-muted);
-  font-size: 0.88rem;
-  margin-bottom: 0.65rem;
+  font-style: italic;
+}
+
+.book-stars {
   display: flex;
+  gap: 2px;
   align-items: center;
-  gap: 0.35rem;
+  flex-shrink: 0;
 }
 
-.book-genre-badge {
-  display: inline-block;
-  background-color: var(--surface-muted);
-  color: var(--ink-secondary);
-  border: 1px solid var(--border-subtle);
-  padding: 0.15rem 0.5rem;
-  border-radius: var(--radius-xs);
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  font-weight: 500;
-  margin-bottom: 0.75rem;
-}
-
-.book-notes {
+.book-quote {
   background-color: var(--surface-subtle);
   border-left: 2px solid var(--border-strong);
-  padding: 0.55rem 0.75rem;
-  border-radius: 0 var(--radius-xs) var(--radius-xs) 0;
+  padding: 0.65rem 0.9rem;
   font-family: var(--font-serif);
-  font-size: 0.88rem;
-  color: var(--ink-secondary);
+  font-size: 0.9rem;
   font-style: italic;
-  margin-bottom: 1rem;
+  color: var(--ink-secondary);
   line-height: 1.5;
+  border-radius: 0 var(--radius-xs) var(--radius-xs) 0;
+  margin: 0.15rem 0;
 }
 
 .card-footer {
   border-top: 1px solid var(--border-subtle);
-  padding-top: 0.75rem;
+  padding-top: 0.85rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 0.5rem;
-  flex-wrap: wrap;
+  margin-top: auto;
 }
 
-.status-badge {
+/* Single Unified Interactive Status Pill */
+.status-pill-container {
   display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  padding: 0.25rem 0.6rem;
-  border-radius: var(--radius-xs);
+  position: relative;
+}
+
+.status-pill-select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding: 0.35rem 1.65rem 0.35rem 0.75rem;
+  border-radius: 9999px;
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.76rem;
   font-weight: 600;
-  white-space: nowrap;
-  flex-shrink: 0;
-  line-height: 1;
+  cursor: pointer;
+  border: 1px solid transparent;
+  background-repeat: no-repeat;
+  background-position: right 0.55rem center;
+  background-size: 11px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  transition: all 0.12s ease;
 }
 
-.status-badge svg {
-  flex-shrink: 0;
-  display: block;
-}
-
-.status-badge.currently-reading {
+.status-pill-select.status-currently-reading {
   background-color: #fef3c7;
   color: #92400e;
-  border: 1px solid #fde68a;
+  border-color: #fde68a;
 }
 
-.status-badge.completed {
+.status-pill-select.status-completed {
   background-color: #f0fdf4;
   color: #166534;
-  border: 1px solid #bbf7d0;
+  border-color: #bbf7d0;
 }
 
-.status-badge.want-to-read {
+.status-pill-select.status-want-to-read {
   background-color: var(--surface-muted);
   color: var(--ink-secondary);
-  border: 1px solid var(--border-strong);
+  border-color: var(--border-strong);
+}
+
+.status-pill-select:hover {
+  filter: brightness(0.97);
+}
+
+.status-pill-select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(28, 25, 23, 0.12);
 }
 
 .card-actions {
