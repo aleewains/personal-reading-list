@@ -1,4 +1,4 @@
-# Personal Reading List (Brief C)
+# Personal Reading List
 
 A personal reading list application built with React, TypeScript, and Vite, backed by persistent client storage with simulated asynchronous network semantics.
 
