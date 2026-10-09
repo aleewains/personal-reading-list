@@ -20,20 +20,20 @@ export const BookCard: React.FC<BookCardProps> = ({
       case 'currently-reading':
         return (
           <span className="status-badge currently-reading">
-            <BookOpen size={12} /> Currently Reading
+            <BookOpen size={13} style={{ flexShrink: 0 }} /> Currently Reading
           </span>
         );
       case 'completed':
         return (
           <span className="status-badge completed">
-            <CheckCircle size={12} /> Completed
+            <CheckCircle size={13} style={{ flexShrink: 0 }} /> Completed
           </span>
         );
       case 'want-to-read':
       default:
         return (
           <span className="status-badge want-to-read">
-            <Clock size={12} /> Want to Read
+            <Clock size={13} style={{ flexShrink: 0 }} /> Want to Read
           </span>
         );
     }
@@ -48,7 +48,7 @@ export const BookCard: React.FC<BookCardProps> = ({
         </div>
 
         <div className="book-author">
-          <User size={14} /> {book.author}
+          <User size={14} style={{ flexShrink: 0 }} /> {book.author}
         </div>
 
         {book.genre && <span className="book-genre-badge">{book.genre}</span>}
