@@ -31,3 +31,4 @@ export interface ReadingListState {
   reviewerMode: ReviewerMode;
   latencyMs: number;
 }
+

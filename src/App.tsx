@@ -233,7 +233,7 @@ export function App() {
       {/* Toast Notice */}
       {toastMessage && (
         <aside className="toast-notice" role="status" aria-live="polite">
-          <span style={{ color: '#10b981', fontWeight: 'bold' }}>✓</span>
+          <span style={{ color: '#ffffff', fontWeight: 'bold' }}>✓</span>
           <span style={{ fontSize: '0.88rem' }}>{toastMessage}</span>
         </aside>
       )}
@@ -242,3 +242,4 @@ export function App() {
 }
 
 export default App;
+

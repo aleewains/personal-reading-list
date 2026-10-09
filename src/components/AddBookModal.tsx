@@ -63,7 +63,7 @@ export const AddBookModal: React.FC<AddBookModalProps> = ({
       <div className="modal-content">
         <div className="modal-header">
           <h2 id="modal-title" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-            <PlusCircle size={20} style={{ color: '#3b82f6' }} />
+            <PlusCircle size={18} style={{ color: 'var(--ink-primary)' }} />
             Add to Reading List
           </h2>
           <button
@@ -81,11 +81,11 @@ export const AddBookModal: React.FC<AddBookModalProps> = ({
             {error && (
               <div
                 style={{
-                  backgroundColor: 'rgba(244, 63, 94, 0.15)',
-                  border: '1px solid rgba(244, 63, 94, 0.4)',
-                  color: '#fca5a5',
+                  backgroundColor: 'var(--danger-bg)',
+                  border: '1px solid var(--danger-border)',
+                  color: 'var(--danger-text)',
                   padding: '0.6rem 0.8rem',
-                  borderRadius: '6px',
+                  borderRadius: 'var(--radius-xs)',
                   fontSize: '0.85rem',
                 }}
               >

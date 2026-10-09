@@ -38,7 +38,7 @@ export const ErrorState: React.FC<ErrorStateProps> = ({
         </div>
         <div className="error-title-area">
           <h3>{activeError.title}</h3>
-          <p style={{ color: '#fca5a5', fontSize: '0.9rem' }}>
+          <p style={{ color: 'var(--danger-text)', fontSize: '0.88rem' }}>
             Request attempted at {activeError.timestamp}. The reading list could not be loaded.
           </p>
         </div>
@@ -99,3 +99,4 @@ export const ErrorState: React.FC<ErrorStateProps> = ({
     </div>
   );
 };
+

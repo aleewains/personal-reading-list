@@ -54,21 +54,22 @@ export const ReviewerDevBar: React.FC<ReviewerDevBarProps> = ({
       <div className="devbar-header">
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
           <span className="devbar-badge">
-            <Sliders size={14} /> Reviewer State Switcher
+            <Sliders size={13} /> Inspector
           </span>
-          <span style={{ fontSize: '0.85rem', color: '#93c5fd' }}>
-            Current UI State:{' '}
+          <span style={{ fontSize: '0.8rem', color: 'var(--ink-secondary)' }}>
+            Active State:{' '}
             <strong
               style={{
+                fontFamily: 'var(--font-mono)',
                 textTransform: 'uppercase',
                 color:
                   activeStatus === 'loading'
-                    ? '#60a5fa'
+                    ? 'var(--ink-secondary)'
                     : activeStatus === 'error'
-                    ? '#f43f5e'
+                    ? 'var(--danger-text)'
                     : activeStatus === 'empty'
-                    ? '#34d399'
-                    : '#a78bfa',
+                    ? 'var(--accent-moss)'
+                    : 'var(--ink-primary)',
               }}
             >
               {activeStatus}
@@ -157,8 +158,8 @@ export const ReviewerDevBar: React.FC<ReviewerDevBarProps> = ({
 
       {/* Latency and URL links */}
       <div className="devbar-footer">
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', flexWrap: 'wrap' }}>
-          <span style={{ fontSize: '0.8rem', color: '#94a3b8' }}>Simulated Latency:</span>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap' }}>
+          <span style={{ fontSize: '0.78rem', color: 'var(--ink-muted)' }}>Latency:</span>
           {[0, 400, 1000, 2500].map((ms) => (
             <button
               key={ms}
@@ -167,13 +168,13 @@ export const ReviewerDevBar: React.FC<ReviewerDevBarProps> = ({
               style={{
                 padding: '0.2rem 0.5rem',
                 fontSize: '0.75rem',
-                backgroundColor: latencyMs === ms ? 'rgba(59, 130, 246, 0.3)' : 'transparent',
-                borderColor: latencyMs === ms ? '#3b82f6' : 'var(--border-color)',
-                color: latencyMs === ms ? '#ffffff' : 'var(--text-secondary)',
+                backgroundColor: latencyMs === ms ? 'var(--ink-primary)' : 'var(--surface-card)',
+                borderColor: latencyMs === ms ? 'var(--ink-primary)' : 'var(--border-subtle)',
+                color: latencyMs === ms ? '#ffffff' : 'var(--ink-secondary)',
               }}
               onClick={() => onChangeLatency(ms)}
             >
-              {ms === 0 ? 'Instant (0ms)' : `${ms}ms`}
+              {ms === 0 ? '0ms' : `${ms}ms`}
             </button>
           ))}
           <button

@@ -21,10 +21,10 @@ export const LoadingState: React.FC<LoadingStateProps> = ({ onCancel }) => {
 
       <div className="loading-badge-note">
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontWeight: 600 }}>
-          <Info size={15} style={{ color: '#60a5fa' }} />
+          <Info size={15} style={{ color: 'var(--ink-secondary)' }} />
           <span>System State Notice:</span>
         </div>
-        <div style={{ marginTop: '0.25rem', fontSize: '0.82rem', color: '#94a3b8' }}>
+        <div style={{ marginTop: '0.25rem', fontSize: '0.82rem', color: 'var(--ink-muted)' }}>
           This state indicates network latency or pending I/O. It is visually and conceptually distinct from an
           empty list because entries may appear once the request completes.
         </div>
@@ -73,3 +73,4 @@ export const LoadingState: React.FC<LoadingStateProps> = ({ onCancel }) => {
     </div>
   );
 };
+

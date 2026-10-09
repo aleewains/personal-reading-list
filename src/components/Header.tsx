@@ -21,13 +21,15 @@ export const Header: React.FC<HeaderProps> = ({
   return (
     <header className="main-header">
       <div className="main-title-group">
-        <h1>
-          <Library size={32} style={{ color: '#3b82f6' }} />
-          Personal Reading List
-        </h1>
-        <p>
-          Backed by persistent store • Distinguishing loading, error, and empty states.
-        </p>
+        <div>
+          <h1>
+            <Library size={28} style={{ color: 'var(--ink-primary)' }} />
+            Personal Reading List
+          </h1>
+          <p>
+            An archival catalog of books read, in progress, and queued for study.
+          </p>
+        </div>
       </div>
 
       <div className="header-actions">
@@ -85,3 +87,4 @@ export const Header: React.FC<HeaderProps> = ({
     </header>
   );
 };
+

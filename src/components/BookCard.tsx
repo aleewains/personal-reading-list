@@ -60,13 +60,13 @@ export const BookCard: React.FC<BookCardProps> = ({
         )}
 
         {book.rating && (
-          <div style={{ display: 'flex', gap: '2px', marginBottom: '0.8rem', color: '#fbbf24' }}>
+          <div style={{ display: 'flex', gap: '2px', marginBottom: '0.8rem' }}>
             {Array.from({ length: 5 }).map((_, i) => (
               <Star
                 key={i}
-                size={14}
-                fill={i < (book.rating || 0) ? '#fbbf24' : 'transparent'}
-                stroke={i < (book.rating || 0) ? '#fbbf24' : '#64748b'}
+                size={13}
+                fill={i < (book.rating || 0) ? 'var(--accent-ochre)' : 'transparent'}
+                stroke={i < (book.rating || 0) ? 'var(--accent-ochre)' : 'var(--border-strong)'}
               />
             ))}
           </div>
@@ -124,3 +124,4 @@ export const BookCard: React.FC<BookCardProps> = ({
     </article>
   );
 };
+

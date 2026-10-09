@@ -144,3 +144,4 @@ npm test
 * **Icons**: Lucide React
 * **Persistence**: Browser `localStorage` with simulated asynchronous latency & error injection
 * **Testing**: Vitest + React Testing Library + JSDOM
+
