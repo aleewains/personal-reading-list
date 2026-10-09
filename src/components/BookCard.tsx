@@ -81,38 +81,42 @@ export const BookCard: React.FC<BookCardProps> = ({
         </div>
 
         <div className="card-actions">
-          {confirmDelete ? (
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
-              <button
-                type="button"
-                className="btn btn-danger"
-                style={{ padding: '0.25rem 0.55rem', fontSize: '0.72rem' }}
-                onClick={() => onRemove(book.id)}
-                title="Confirm removal"
-              >
-                Delete
-              </button>
-              <button
-                type="button"
-                className="btn btn-secondary"
-                style={{ padding: '0.25rem 0.5rem', fontSize: '0.72rem' }}
-                onClick={() => setConfirmDelete(false)}
-                title="Cancel removal"
-              >
-                Cancel
-              </button>
-            </div>
-          ) : (
+          <div className="delete-popover-anchor">
             <button
               type="button"
-              className="action-icon-btn delete"
-              onClick={() => setConfirmDelete(true)}
+              className={`action-icon-btn delete ${confirmDelete ? 'active' : ''}`}
+              onClick={() => setConfirmDelete(!confirmDelete)}
               title="Remove book from reading list"
               aria-label={`Remove ${book.title}`}
             >
               <Trash2 size={15} />
             </button>
-          )}
+
+            {confirmDelete && (
+              <div className="delete-popover" role="dialog" aria-label="Confirm deletion">
+                <span className="popover-prompt">Remove this book?</span>
+                <div className="popover-actions">
+                  <button
+                    type="button"
+                    className="popover-cancel-btn"
+                    onClick={() => setConfirmDelete(false)}
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="button"
+                    className="popover-delete-btn"
+                    onClick={() => {
+                      setConfirmDelete(false);
+                      onRemove(book.id);
+                    }}
+                  >
+                    Delete
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </article>

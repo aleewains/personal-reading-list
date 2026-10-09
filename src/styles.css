@@ -888,10 +888,107 @@ body {
   color: var(--ink-primary);
 }
 
-.action-icon-btn.delete:hover {
+.action-icon-btn.delete:hover,
+.action-icon-btn.delete.active {
   background-color: var(--danger-bg);
   color: var(--danger-accent);
   border-color: var(--danger-border);
+}
+
+/* Floating Delete Popover Balloon */
+.delete-popover-anchor {
+  position: relative;
+  display: inline-flex;
+}
+
+.delete-popover {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  right: -4px;
+  background-color: var(--surface-card);
+  border: 1px solid var(--border-strong);
+  box-shadow: 0 10px 25px -5px rgba(28, 25, 23, 0.18), 0 4px 6px -2px rgba(28, 25, 23, 0.08);
+  border-radius: var(--radius-sm);
+  padding: 0.65rem 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 175px;
+  z-index: 30;
+  animation: popUp 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Arrow pointer */
+.delete-popover::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  right: 12px;
+  border-width: 6px;
+  border-style: solid;
+  border-color: var(--surface-card) transparent transparent transparent;
+}
+
+.delete-popover::before {
+  content: '';
+  position: absolute;
+  top: 100%;
+  right: 11px;
+  border-width: 7px;
+  border-style: solid;
+  border-color: var(--border-strong) transparent transparent transparent;
+}
+
+.popover-prompt {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--ink-primary);
+  line-height: 1.2;
+}
+
+.popover-actions {
+  display: flex;
+  gap: 0.35rem;
+  justify-content: flex-end;
+}
+
+.popover-cancel-btn {
+  background-color: var(--surface-muted);
+  border: 1px solid var(--border-subtle);
+  color: var(--ink-secondary);
+  padding: 0.25rem 0.55rem;
+  border-radius: var(--radius-xs);
+  font-size: 0.72rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.1s ease;
+}
+
+.popover-cancel-btn:hover {
+  background-color: #ffffff;
+  color: var(--ink-primary);
+  border-color: var(--border-strong);
+}
+
+.popover-delete-btn {
+  background-color: var(--danger-accent);
+  border: 1px solid var(--danger-accent);
+  color: #ffffff;
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-xs);
+  font-size: 0.72rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.1s ease;
+}
+
+.popover-delete-btn:hover {
+  background-color: #b91c1c;
+}
+
+@keyframes popUp {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* =========================================================================
